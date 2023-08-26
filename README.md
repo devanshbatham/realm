@@ -33,6 +33,7 @@ www.example.net
 www.example.org
 example.net
 example.edu
+
 🔍 Traversing example.org: 8 domains found
 example.com
 example.org
@@ -42,6 +43,7 @@ www.example.net
 www.example.org
 example.net
 example.edu
+
 🔍 Traversing www.example.com: 8 domains found
 example.org
 www.example.com
@@ -51,6 +53,7 @@ www.example.org
 example.net
 example.edu
 example.com
+
 🔍 Traversing www.example.edu: 8 domains found
 www.example.org
 example.net
