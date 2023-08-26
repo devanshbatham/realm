@@ -3,7 +3,7 @@
   <br>
 </h1>
 
-<h4 align="center">A utility for recursively traversing SSL/TLS certificates and collecting DNS names</h4>
+<h4 align="center">A utility for recursively traversing SSL/TLS certificates for collecting DNS names</h4>
 
 
 <p align="center">
