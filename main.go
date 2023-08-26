@@ -5,8 +5,8 @@ import (
 	"crypto/x509"
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"strings"
-
 
 	"golang.org/x/net/idna"
 )
@@ -18,18 +18,46 @@ var (
 func main() {
 	domainFlag := flag.String("d", "", "Domain to start traversal from")
 	depthFlag := flag.Int("n", 1, "Depth of traversal")
+	listFlag := flag.String("l", "", "File containing domain names")
 
 	flag.Parse()
 
-	if *domainFlag == "" {
-		fmt.Println("Usage: realm -d <domain> -n <depth>")
+	if *domainFlag == "" && *listFlag == "" {
+		fmt.Println("Usage: realm -d <domain> -n <depth> -l <file>")
 		return
 	}
 
-	domain := *domainFlag
-	depth := *depthFlag
+	if *domainFlag != "" {
+		traverseDomain(*domainFlag, *depthFlag)
+	}
 
-	traverseDomain(domain, depth)
+	if *listFlag != "" {
+		domainList, err := readDomainList(*listFlag)
+		if err != nil {
+			fmt.Println("Error reading domain list:", err)
+			return
+		}
+
+		for _, domain := range domainList {
+			traverseDomain(domain, *depthFlag)
+		}
+	}
+}
+
+func readDomainList(filename string) ([]string, error) {
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	lines := strings.Split(string(content), "\n")
+	var domainList []string
+	for _, line := range lines {
+		line = strings.TrimSpace(line)
+		if line != "" {
+			domainList = append(domainList, line)
+		}
+	}
+	return domainList, nil
 }
 
 func traverseDomain(domain string, depth int) {
