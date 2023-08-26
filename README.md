@@ -16,7 +16,7 @@
 
 # Install
 ```sh
-go install github.com/devanshbatham/realm@v0.0.1
+go install github.com/devanshbatham/realm@v0.0.2
 ```
 
 # Usage
