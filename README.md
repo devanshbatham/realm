@@ -12,7 +12,7 @@
   <br>
 </p>
 
-![realm](https://raw.githubusercontent.com/devanshbatham/realm/master/static/banner.png)
+![realm](https://github.com/devanshbatham/realm/blob/main/static/banner.png?raw=true)
 
 # Install
 ```sh
