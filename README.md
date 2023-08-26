@@ -16,13 +16,13 @@
 
 # Install
 ```sh
-go install github.com/devanshbatham/rayder@v0.0.1
+go install github.com/devanshbatham/realm@v0.0.1
 ```
 
 # Usage
 
 ```sh
-(~) >>> realm -d "example.com" -n 2
+(~) >>> realm -d example.com -n 2
 
 🔍 Traversing example.com: 8 domains found
 example.com
